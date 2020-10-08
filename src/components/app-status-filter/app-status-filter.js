@@ -15,12 +15,12 @@ export default class AppStatusFilter extends Component {
     render() {
         const {buttons} = this.state
         const { filter , updateFilter} = this.props
-        const button =  buttons.map(({ name}) => {
+        const button =  buttons.map(({ name,label}) => {
             const isActive = filter === name;
             const className = isActive ? "btn btn-danger" : "btn btn-outline-secondary"
             return (
                 <div key={name}>
-                    <button onClick={()=>{updateFilter(name)}} className={className}>{name}</button>
+                    <button onClick={()=>{updateFilter(name)}} className={className}>{label}</button>
                 </div>
             )
         })
