@@ -5,9 +5,9 @@ export default class AppStatusFilter extends Component {
 
     state = {
         buttons : [
-            {name:'all',label:'all',test:1},
-            {name:'active',label:'active',test:2},
-            {name:'done',label:'done',test:3},
+            {name:'all',label:'all'},
+            {name:'active',label:'active'},
+            {name:'done',label:'done'},
         ]
     }
 
