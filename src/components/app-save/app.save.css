@@ -1,0 +1,9 @@
+.modalBtn {
+    margin: .1rem .2rem;
+}
+.myList{
+    cursor: pointer;
+}
+.myList:hover{
+    background-color: gray;
+}
