@@ -28,7 +28,7 @@ export default class AppListItem extends Component {
         }
         let ifDuplicatedText = duplicated ? 'Duplicated!' : false
 
-        const activeStyle =  active ? 'btn btn-outline-success btn-sm float-right active' : "btn btn-outline-success btn-sm float-right"
+        const activeStyle =  active ? 'btn btn-outline-success btn-sm float-right active' : "btn btn-outline-success btn-sm float-right myImportant"
         return (
 
             <span>
@@ -38,9 +38,7 @@ export default class AppListItem extends Component {
                 <span className="text-center text-danger same">{ifDuplicatedText}</span>
 
                     <button type="button" className={activeStyle}
-                            onClick={onToggleActive}
-                    >
-                    <i className="fa fa-exclamation"/>Important</button>
+                            onClick={onToggleActive}>Important</button>
 
                     <button type="button" className="btn btn-outline-danger btn-sm float-right"
                             onClick={onDelete}

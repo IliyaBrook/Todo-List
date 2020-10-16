@@ -27,3 +27,12 @@
 .duplicatedSearch {
     border-bottom: 2px solid red;
 }
+
+.myImportant:hover {
+    color: #28a745 !important;
+    border-color: #28a745 !important;
+    background-color: white !important;
+    text-decoration: none;
+}
+
+
