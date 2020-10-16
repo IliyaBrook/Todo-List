@@ -8,6 +8,7 @@ export default class ItemAddFrom extends Component {
     }
 
 
+
     onAddFrom = (event) => {
         event.preventDefault()
         this.props.itemAddForm(this.state.value);
@@ -23,7 +24,7 @@ export default class ItemAddFrom extends Component {
 
         return (
            <>
-            <form onSubmit={this.onAddFrom} className="d-flex d-inline-block">
+            <form onSubmit={this.onAddFrom} className="d-flex d-inline-block form-add">
                 <input value={this.state.value} onChange={this.onChange} placeholder="Type New Task"
                        className="input-group-text"
                 />

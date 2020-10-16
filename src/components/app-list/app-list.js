@@ -9,17 +9,17 @@ const AppList = ({itemsListState,onDelete , onToggleActive , onToggleDone }) => 
 
         return (
 
-                <div key={id} className='m-1'>
-                    <li className="list-group-item">
-                        <ul className="todo-list list-group">
-                            <AppListItem {...allProps}
-                                         onDelete={()=>{onDelete(id)}}
-                                         onToggleActive={()=>{onToggleActive(id)}}
-                                         onToggleDone={()=>{onToggleDone(id)}}
-                            />
-                        </ul>
-                    </li>
-                </div>
+            <div key={id} className='m-1'>
+                <li className="list-group-item">
+                    <ul className="todo-list list-group">
+                        <AppListItem {...allProps}
+                                     onDelete={()=>{onDelete(id)}}
+                                     onToggleActive={()=>{onToggleActive(id)}}
+                                     onToggleDone={()=>{onToggleDone(id)}}
+                        />
+                    </ul>
+                </li>
+            </div>
 
         )
     })
@@ -27,4 +27,3 @@ const AppList = ({itemsListState,onDelete , onToggleActive , onToggleDone }) => 
     return <div>{allList}</div>
 }
 export default AppList;
-

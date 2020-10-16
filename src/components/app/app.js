@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 import './app.css'
 
+
 import AppHeader from "../app-header";
 import SearchPanel from "../search-panel";
 import AppList from "../app-list";
 import AppStatusFilter from "../app-status-filter";
 import ItemAddFrom from "../item-add-form";
+import AppSave from "../app-save/app-save";
 
 export default class App extends Component {
     maxId = 100
@@ -18,6 +20,30 @@ export default class App extends Component {
         searchState: '',
         filter:'',
         ifAddFormEmpty:''
+    }
+    componentWillUnmount() {
+        this.clearEmptyText(false)
+    }
+
+    clearEmptyText (mounted = true) {
+        if(mounted) {
+        setTimeout(()=>{
+            this.setState(({ifAddFormEmpty:''}))
+        },5000)
+        }
+    }
+
+    listItemSave = () => {
+        return   JSON.stringify(this.state.listItems);
+    }
+
+
+    listItemLoad = (loadedList) => {
+        this.setState(()=> {
+            return {
+                listItems:loadedList
+            }
+        })
     }
 
     updateFilter = (filter) => {
@@ -37,6 +63,7 @@ export default class App extends Component {
         }
     }
 
+
     search(items, text) {
         if (text === '') {
             return items;
@@ -44,26 +71,40 @@ export default class App extends Component {
         return items.filter((el) => {
             return el.itemText.match(text);
         })
+
     }
 
     searchStateUpdate = (searchState) => {
         this.setState({searchState})
     }
 
-    itemAddForm = (text) => {
-        this.setState(({listItems}) => {
-            if(text.length === 0){
+
+
+
+     itemAddForm = (text) => {
+
+        this.setState(({listItems,ifAddFormEmpty}) => {
+            this.clearEmptyText();
+            const newArray = [...listItems, this.createItems(text)]
+            if(text === ''){
+                console.log(ifAddFormEmpty)
                 return {
-                    ifAddFormEmpty:'Pleas add some text'
+                    listItems,
+                    ifAddFormEmpty:'Input text cannot be empty'
                 }
-            }else {
-                const newArray = [...listItems, this.createItems(text)]
+            }
+            else if (listItems.some(item => item.itemText === text)){
+                const newDuplicateTrue = [...listItems,this.createItems(text,true)]
+                return {
+                    listItems:newDuplicateTrue,
+                }
+            }
+            else {
                 return {
                     listItems: newArray,
                     ifAddFormEmpty:''
                 }
             }
-
         })
     }
 
@@ -92,12 +133,13 @@ export default class App extends Component {
         })
     }
 
-    createItems(itemText) {
+    createItems(itemText,duplicated = false) {
         return {
             itemText,
             active: false,
             done: false,
-            id: this.maxId++
+            id: this.maxId++,
+            duplicated,
         }
     }
 
@@ -119,21 +161,28 @@ export default class App extends Component {
 
     render() {
         let done = 0
-        const {listItems, searchState , filter} = this.state
+        const {listItems, searchState , filter } = this.state
         listItems.forEach((item) => {
             if (item.done) {
                 done++
             }
         })
+
+
+
         const listItemsCounter = listItems.length;
         const isVisible = this.filterItems(this.search(listItems, searchState),filter);
         return (
             <div className="todo-app">
+                <AppSave listItemSave={this.listItemSave}
+                         listItemLoad={this.listItemLoad}
+                />
+
                 <AppHeader
                     doneCounter={done}
                     listItemsCounter={listItemsCounter}
                 />
-                <div className="search-panel d-flex">
+                <div className="search-panel d-sm-flex">
 
                     <SearchPanel
                         onItemSearch={this.searchStateUpdate}
@@ -146,9 +195,11 @@ export default class App extends Component {
                          onDelete={this.deleteItem}
                          onToggleActive={this.onToggleActive}
                          onToggleDone={this.onToggleDone}
+                         duplicateItemList={this.duplicateItemList}
                 />
-                <ItemAddFrom itemAddForm={this.itemAddForm}/>
-                <h4 className="text-center text-info">{this.state.ifAddFormEmpty}</h4>
+                <ItemAddFrom itemAddForm={this.itemAddForm} filterSameItems={this.filterSameItems}
+                />
+                <h4 className="text-center text-danger">{this.state.ifAddFormEmpty}</h4>
             </div>
         )
     }

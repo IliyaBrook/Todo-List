@@ -1,11 +1,11 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
 import './search-panel.css'
 
 export default class SearchPanel extends Component {
 
 
     state = {
-        value:''
+        value: ''
     }
 
     onInputValue = (e) => {
@@ -14,10 +14,12 @@ export default class SearchPanel extends Component {
         this.props.onItemSearch(value)
     }
 
+
+
     render() {
         return (
-            <div className="d-flex">
-                <input className="form-control search-input" placeholder="Type Here To Search"
+            <div>
+                <input className="form-control search-input"  placeholder="Type Here To Search"
                        onChange={this.onInputValue}
                  value={this.state.value}/>
             </div>

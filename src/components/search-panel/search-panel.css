@@ -1,9 +1,9 @@
-.search-panel {
-    margin: .7rem 0;
+.search-input {
+    width: 292px;
 }
 
-.search-panel .search-input {
-    width: 20rem;
-    flex-grow: 1;
-    margin-right: 0.3rem;
+@media screen and (max-width: 575px) {
+    .search-input {
+        width: 500px;
+    }
 }
