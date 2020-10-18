@@ -18,7 +18,6 @@ export default class AppSave extends Component {
     }
 
 
-
     modalSaveShow = () => {
         this.setState({modalSave: !this.state.modalSave})
 
@@ -42,9 +41,6 @@ export default class AppSave extends Component {
     }
 
 
-
-
-
     chooseList = (e) => {
         const id = e.target.id
         console.log(id)
@@ -59,10 +55,10 @@ export default class AppSave extends Component {
         return key.map((keys) => {
             id++
             return (
-                    <li onClick={this.chooseList} className="list-group-item myList"
-                        key={id} id={keys}>
-                        {keys}
-                    </li>
+                <li onClick={this.chooseList} className="list-group-item myList"
+                    key={id} id={keys}>
+                    {keys}
+                </li>
             )
         })
     }
@@ -71,9 +67,11 @@ export default class AppSave extends Component {
         const {modalSave, modalSaveValue, modalLoad} = this.state
         return (
             <div className='savePanel'>
-                <Button onClick={this.modalSaveShow} className="modalBtn">Save List</Button>
-                <Button onClick={this.modalLoadShow} className="modalBtn">Load List</Button>
-                <button className="btn btn-danger" onClick={this.clearAllList}>Clear all lists</button>
+                <div className="modalBtn d-flex justify-content-between">
+                    <Button onClick={this.modalSaveShow} className="btn myBtn">Save List</Button>
+                    <Button onClick={this.modalLoadShow} className="btn myBtn">Load List</Button>
+                    <button className="btn btn-danger myBtn" onClick={this.clearAllList}>Clear all lists</button>
+                </div>
 
                 <Modal show={modalSave} onHide={this.modalSaveShow}>
                     <form onSubmit={this.submitList}>

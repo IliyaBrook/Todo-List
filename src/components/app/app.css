@@ -2,3 +2,15 @@
     margin: 2rem auto 0 auto;
     max-width: 500px;
 }
+
+
+
+@media screen and (max-width: 500px) {
+    html{
+        align-items: flex-end;
+        margin-bottom: .2rem;
+        width: 500px;
+    }
+}
+
+

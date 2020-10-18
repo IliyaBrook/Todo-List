@@ -160,6 +160,7 @@ export default class App extends Component {
 
 
     render() {
+
         let done = 0
         const {listItems, searchState , filter } = this.state
         listItems.forEach((item) => {
@@ -167,9 +168,6 @@ export default class App extends Component {
                 done++
             }
         })
-
-
-
         const listItemsCounter = listItems.length;
         const isVisible = this.filterItems(this.search(listItems, searchState),filter);
         return (

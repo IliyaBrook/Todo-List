@@ -1,9 +1,29 @@
 .modalBtn {
     margin: .1rem .2rem;
+    width: 100%;
 }
 .myList{
     cursor: pointer;
 }
 .myList:hover{
     background-color: gray;
+}
+.myBtn{
+     width: 40%;
+    margin: .1rem .2rem;
+}
+
+
+@media screen and (max-width: 200px) {
+    .modalBtn {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+@media screen and (max-width: 201px){
+    .myBtn{
+        width: 100%;
+        margin: .1rem .2rem;
+    }
 }
