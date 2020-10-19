@@ -19,7 +19,7 @@ export default class AppStatusFilter extends Component {
             const isActive = filter === name;
             const className = isActive ? "btn btn-danger btns" : "btn btn-outline-secondary btns"
             return (
-                <div key={name}>
+                <div key={name} className="d-flex d-md-inline align-items-end">
                     <button onClick={()=>{updateFilter(name)}} className={className}>{label}</button>
                 </div>
             )

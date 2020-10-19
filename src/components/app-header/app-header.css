@@ -10,3 +10,31 @@ h2{
     font-size: 150%;
     color: gray;
 }
+@media screen and (max-width: 500px) {
+    .header{
+        font-size: 250%;
+    }
+    .header2{
+        font-size: 170%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .app-header{
+        width: 100%;
+        font-size: 60%;
+    }
+    .header2{
+        font-size: 120%;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 412px) {
+    .app-header{
+        width: 100%;
+        font-size: 60%;
+    }
+    .header2{
+        font-size: 120%;
+    }
+}

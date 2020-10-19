@@ -13,7 +13,6 @@ export default class AppListItem extends Component {
     }
     render() {
         const {itemText ,onDelete , onToggleDone , onToggleActive , ...allProps} = this.props
-        // duplicateItemList(false,this.updateDuplicateState())
         const { active , done } = allProps
         const {duplicated} = this.state
         const doneStyle = () => {
@@ -37,10 +36,10 @@ export default class AppListItem extends Component {
                 </span>
                 <span className="text-center text-danger same">{ifDuplicatedText}</span>
 
-                    <button type="button" className={activeStyle}
+                    <button type="button myImportant" className={activeStyle}
                             onClick={onToggleActive}>Important</button>
 
-                    <button type="button" className="btn btn-outline-danger btn-sm float-right"
+                    <button type="button" className="btn btn-outline-danger btn-sm float-right myImportant"
                             onClick={onDelete}
                     >
                     <i className="fa fa-trash-o"/>Delete</button>

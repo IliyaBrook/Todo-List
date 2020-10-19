@@ -27,3 +27,19 @@
         margin: .1rem .2rem;
     }
 }
+
+
+.modal-backdrop{
+    display:none;
+    visibility:hidden;
+    position:relative
+}
+
+@media screen and (max-width: 577px) {
+    .myBtn{
+        width: 100%;
+        margin: .1rem .2rem;
+        height: 3.5rem;
+    }
+}
+

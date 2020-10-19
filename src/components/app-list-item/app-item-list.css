@@ -34,5 +34,16 @@
     background-color: white !important;
     text-decoration: none;
 }
+@media screen and (max-width: 360px) {
+    .todo-list-item {
+        font-size: 1.7rem;
+        width: 100%;
+    }
+    .myImportant{
+        width: 5rem;
+        height: 2rem;
+        margin-left: .3rem;
+    }
 
+}
 

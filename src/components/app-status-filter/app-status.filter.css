@@ -2,8 +2,17 @@
     margin-left: .1rem;
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 577px) {
     .btns {
-        width: 31rem;
+        width: 35rem;
+        height: 3.5rem;
+        font-size: 1.3rem;
+    }
+}
+@media screen and (max-width: 360px) {
+    .btns {
+        width: 35rem;
+        height: 2.9rem;
+        font-size: 1.3rem;
     }
 }

@@ -66,14 +66,14 @@ export default class AppSave extends Component {
     render() {
         const {modalSave, modalSaveValue, modalLoad} = this.state
         return (
-            <div className='savePanel'>
+            <div>
                 <div className="modalBtn d-flex justify-content-between">
                     <Button onClick={this.modalSaveShow} className="btn myBtn">Save List</Button>
                     <Button onClick={this.modalLoadShow} className="btn myBtn">Load List</Button>
                     <button className="btn btn-danger myBtn" onClick={this.clearAllList}>Clear all lists</button>
                 </div>
 
-                <Modal show={modalSave} onHide={this.modalSaveShow}>
+                <Modal show={modalSave} onHide={this.modalSaveShow} >
                     <form onSubmit={this.submitList}>
                         <Modal.Header closeButton onClick={this.modalSaveShow}>
                             <Modal.Title>Save List</Modal.Title>

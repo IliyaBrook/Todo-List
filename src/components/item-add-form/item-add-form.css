@@ -1,12 +1,14 @@
 input {
     width: 100%;
 }
-
-
-
-
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 577px) {
     .form-add {
-        width: 500px;
+        height: 4rem;
+    }
+}
+
+@media screen and (max-width: 412px) {
+    input {
+        width: 100%;
     }
 }
