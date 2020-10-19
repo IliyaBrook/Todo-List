@@ -178,25 +178,24 @@ export default class App extends Component {
 
                 <AppHeader
                     doneCounter={done}
-                    listItemsCounter={listItemsCounter}
-                />
+                    listItemsCounter={listItemsCounter}/>
                 <div className="search-panel d-sm-flex">
 
                     <SearchPanel
                         onItemSearch={this.searchStateUpdate}
                     />
+
                     <AppStatusFilter filter={filter}
-                    updateFilter={this.updateFilter}
-                    />
+                    updateFilter={this.updateFilter}/>
                 </div>
+                <ItemAddFrom itemAddForm={this.itemAddForm} filterSameItems={this.filterSameItems}/>
                 <AppList itemsListState={isVisible}
                          onDelete={this.deleteItem}
                          onToggleActive={this.onToggleActive}
                          onToggleDone={this.onToggleDone}
                          duplicateItemList={this.duplicateItemList}
                 />
-                <ItemAddFrom itemAddForm={this.itemAddForm} filterSameItems={this.filterSameItems}
-                />
+
                 <h4 className="text-center text-danger">{this.state.ifAddFormEmpty}</h4>
             </div>
         )
